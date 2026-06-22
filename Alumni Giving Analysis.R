@@ -105,7 +105,7 @@ text(x = median_value,
 
 #Identifying the most consistent donor Households by their donation streaks aka loyalty scores, regardless of multiple gifts in a year
 
-# Longest Giving Streak per HH, show the top 20
+# Longest Giving Streak per HH, show the top 5
 
 loyalty_score <- FYdataforR %>%
   filter(!is.na(`Primary Contact SUID`), !is.na(`Gift Date Fiscal Year`)) %>%
@@ -128,10 +128,10 @@ loyalty_score <- FYdataforR %>%
   slice_max(consecutive_years, n = 1, with_ties = FALSE) %>%
   ungroup() %>%
   arrange(desc(consecutive_years)) %>%
-  head(20) %>%
+  head(5) %>%
   select(`Primary Contact SUID`, consecutive_years, streak_start, streak_end)
 
-loyalty_score
+print(loyalty_score)
 
 
 #Display the count of Gift Totals, using a logarithmic scale for visibility, break them into different giving levels
@@ -181,3 +181,5 @@ ggplot(gift_totals, aes(x = gift_total)) +
     axis.title = element_text(size = 12, face = "bold")
   )
 
+#Conclusion: the most common time for a gift is right at graduation, when years since graduating are less than 1. The most giving class is the class of 1992. $100, $1000, and $10,000 are very common gifts
+#There are many donors who give consistently every year, further data is needed to identify who are the all-time most consistent donors.
