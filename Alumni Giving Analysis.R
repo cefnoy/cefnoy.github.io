@@ -1,5 +1,6 @@
 #Goal: We want to find the distribution of alumni giving for the past 15 years by the date of their graduation, as well as the distribution of how much each gift was for
 
+#See full code at: https://github.com/cefnoy/cefnoy.github.io/blob/main/Alumni%20Giving%20Analysis.R
 
 install.packages("devtools")
 library(devtools)
@@ -166,7 +167,7 @@ ggplot(gift_totals, aes(x = gift_total)) +
   annotate("text", x = 500, y = Inf, label = "Donors", 
            vjust = 2.5, hjust = 1, color = "red", size = 4) +
   annotate("text", x = 3000, y = Inf, label = "Leadership", 
-           vjust = 0.75, hjust = 0.5, color = "red", size = 4) +
+           vjust = 1.75, hjust = .5, color = "red", size = 4) +
   annotate("text", x = 30000, y = Inf, label = "Dean's Circle", 
            vjust = 1.5, hjust = 0.1, color = "darkred", size = 4) +
   labs(
