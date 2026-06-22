@@ -80,7 +80,6 @@ median_value <- median(alumni_years, na.rm = TRUE)
 
 #Graphing the years since graduation
 
-# Create histogram
 h <- hist(alumni_years,
   breaks = 50,
   main = "Distribution of Alumni Gifts by Years Since Graduation",
